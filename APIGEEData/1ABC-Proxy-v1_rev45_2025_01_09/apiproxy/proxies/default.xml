@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules>
+        <FaultRule name="GenericFaultHandling">
+            <Step>
+                <Condition>(fault.name!=null)</Condition>
+                <Name>FC-GenericFaultHandling</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <DefaultFaultRule name="Default-fault">
+        <AlwaysEnforce>true</AlwaysEnforce>
+        <Step>
+                <Name>FC-DefaultFault</Name>
+            </Step>
+    </DefaultFaultRule>
+    <Flows>
+        <Flow name="OptionsPreFlight">
+            <Request/>
+            <Respose>
+                <Step>
+                    <Name>FC-Cors</Name>
+                </Step>
+            </Response>
+            <Condition>request.verb == "OPTIONS" AND request.header.origin !=null AND request.header.Access-Control-Request-Method !=null</Condition>
+        </Flow>
+        <Flow name="healthCheck">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetScope-null</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition></Condition>
+        </Flow>
+        <Flow name="createReferences">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetScope-null</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition></Condition>
+        </Flow>
+        <Flow name="getReferences">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetScope-null</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition></Condition>
+        </Flow>
+        <Flow name="deleteReference">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetScope-null</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition></Condition>
+        </Flow>
+        <Flow name="updateReferences">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetScope-null</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition></Condition>
+        </Flow>
+        <Flow name="default">
+            <Description>Default flow</Description>
+            <Request>
+                <Step>
+                    <Name>RF-InvalidResource</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition/>
+        </Flow>
+    </Flows>
+    <PreFlow name="PreFlow">
+        <Request>
+                <Step>
+                    <Name>FC-LogCollector</Name>
+                </Step>
+                <Step>
+                    <Name>SA-Arrest</Name>
+                </Step>
+                <Step>
+                    <Name>RF-BadContentType</Name>
+                    <Condition>(request.verb!="GET")</Condition>
+                </Step>
+                <Step>
+                    <Name>FC-OAuthV2</Name>
+                    <Condition>request.verb!="OPTIONS"</Condition>
+                </Step>
+                <Step>
+                    <Name>TP-JSON</Name>
+                    <Condition></Condition>
+                </Step>
+            </Request>
+            <Respose/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request>
+            <Step>
+                    <Name>AM-SetScope-null</Name>
+            </Step>
+            <Step>
+                    <Name>FC-SignedJWT</Name>
+                    <Condition>request.verb!="OPTIONS"</Condition>
+            </Step>
+            <Step>
+                    <Name>FC-ApplyQuota</Name>
+                    <Condition>request.verb!="OPTIONS"</Condition>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                    <Name>FC-LogCollector</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <PostClientFlow name="PostClientFlow">
+        <Response>
+            <Step>
+                <Name>FC-MessageLogging</Name>
+            </Step>
+        </Response>
+    </PostClientFlow>
+    <HTTPProxyConnection>
+        <BasePath>/test/accountref/v1</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="healthcheck">
+        <TargetEndpoint>targetendpoint-healthcheck</TargetEndpoint>
+        <Condition>(proxy.pathsuffix MatchesPath "/acutator/*") and (request.verb =="GET")</Condition
+    </RouteRule>
+    <RouteRule name="NoRoute">
+        <TargetEndpoint>request.verb=="OPTIONS"</TargetEndpoint>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-SetScope-null" version=""/>
+        <VersionInfo resourceName="FC-ApplyQuota" version=""/>
+        <VersionInfo resourceName="FC-Cors" version=""/>
+        <VersionInfo resourceName="FC-DefaultFault" version=""/>
+        <VersionInfo resourceName="FC-GenericFaultHandling" version=""/>
+        <VersionInfo resourceName="FC-LogCollector" version=""/>
+        <VersionInfo resourceName="FC-MessageLogging" version=""/>
+        <VersionInfo resourceName="FC-OauthV2" version=""/>
+        <VersionInfo resourceName="FC-SetHeader" version=""/>
+        <VersionInfo resourceName="FC-SignedJWT" version=""/>
+        <VersionInfo resourceName="RF-BadContentType" version=""/>
+        <VersionInfo resourceName="RF-InvalidResource" version=""/>
+        <VersionInfo resourceName="SA-Arrest" version=""/>
+        <VersionInfo resourceName="TP-Json" version=""/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version=""/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="build://version.json" version=""/>
+        <VersionInfo resourceName="oas://api.json" version=""/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="default" version=""/>
+        <VersionInfo resourceName="targetendpoint-healthcheck" version=""/>
+    </TargetEndpoints>
+</Manifest>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" contintueOnError="false" enabled="true" name="FC-MessageLogging">
+    <DisplayName>FC-MessageLogging</DisplayName>
+    <FaultRules />
+    <Properties />
+    <SharedFlowBundle>SF-1KYC-MessageLogging</SharedFlowBundle>
+</FlowCallout>

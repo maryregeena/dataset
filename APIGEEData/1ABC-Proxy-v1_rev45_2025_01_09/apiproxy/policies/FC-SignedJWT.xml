@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" contintueOnError="false" enabled="true" name="FC-SignedJWT">
+    <DisplayName>FC-SignedJWT</DisplayName>
+    <FaultRules />
+    <Properties />
+    <Parameters>
+        <Parameter name="ProxyScope">{OAuthScope}</Parameter>
+        <Parameter name="expiry">3000</Parameter>
+        <Parameter name="Pattern">PhantomToken</Parameter>
+    </Parameters>
+    <SharedFlowBundle>SF-1KYC-SignedJWT</SharedFlowBundle>
+</FlowCallout>

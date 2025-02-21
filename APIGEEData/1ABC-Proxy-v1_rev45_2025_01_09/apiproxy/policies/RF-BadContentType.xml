@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" contintueOnError="false" enabled="true" name="RF-BadContentType">
+    <DisplayName>RF-BadContentType</DisplayName>
+    <FaultResponse>
+        <AssignVariable>
+            <Name>flow.api.error.message</Name>
+            <Value>Invalid Content-Type</Value>
+        </AssignVariable>
+         <AssignVariable>
+            <Name>flow.api.error.reason</Name>
+            <Value>Unsupported Media Type</Value>
+        </AssignVariable>
+        <AssignVariable>
+            <Name>flow.api.error.httpCode</Name>
+            <Value>415</Value>
+        </AssignVariable>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>       
+</RaiseFault>

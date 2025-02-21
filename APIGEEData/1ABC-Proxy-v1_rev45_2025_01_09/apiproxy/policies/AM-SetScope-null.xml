@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" contintueOnError="false" enabled="true" name="AM-SetScope-null">
+    <DisplayName>AM-SetScope-null</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>OAuthScope</Name>
+        <Value></Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

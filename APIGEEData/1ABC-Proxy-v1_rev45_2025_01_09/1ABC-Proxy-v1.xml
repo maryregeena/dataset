@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="49" name="1ABC-Proxy-v1">
+    <Basepaths>/test/accountref/v1</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>123829869</CreatedAt>
+    <CreatedBy>mrb@gmail.com</CreatedBy>
+    <Description>blah blah blah</Description>
+    <DisplayName>1ABC-Proxy-v1</DisplayName>
+    <LastModifiedAt>123829869</LastModifiedAt>
+    <LastModifiedBy>mrb@gmail.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:323525252JHGJH2352V5JH23V5JH3VHSDFhjfjh34246dfdfs:dc-3</ManifestVersion>
+    <Policies>
+        <Policy>AM-SetScope-null</Policy>
+        <Policy>FC-ApplyQuota</Policy>
+        <Policy>FC-Cors</Policy>
+        <Policy>FC-DefaultFault</Policy>
+        <Policy>FC-GenericFaultHandling</Policy>
+        <Policy>FC-LogCollector</Policy>
+        <Policy>FC-MessageLogging</Policy>
+        <Policy>FC-OAuthV2</Policy>
+        <Policy>FC-SetHeader</Policy>
+        <Policy>FC-SignedJWT</Policy>
+        <Policy>RF-BadContentType</Policy>
+        <Policy>RF-InvalidResource</Policy>
+        <Policy>SA-Arrest</Policy>
+        <Policy>TP-Json</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>oas://Declaration.json</Resource>
+        <Resource>oas://api.json</Resource>
+        <Resource>build://version.json</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+        <TargetEndpoint>targetendpoint-healthcheck</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" contintueOnError="false" enabled="true" name="RF-InvalidResource">
+    <DisplayName>RF-InvalidResource</DisplayName>
+    <FaultResponse>
+        <AssignVariable>
+            <Name>flow.api.error.message</Name>
+            <Value>Invalid Resource</Value>
+        </AssignVariable>
+         <AssignVariable>
+            <Name>flow.api.error.reason</Name>
+            <Value>Not Found</Value>
+        </AssignVariable>
+        <AssignVariable>
+            <Name>flow.api.error.httpCode</Name>
+            <Value>404</Value>
+        </AssignVariable>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>       
+</RaiseFault>

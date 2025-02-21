@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest name="SA-Arrest" async="false" enabled="false" contintueOnError="false">
+    <DisplayName>SA-Arrest</DisplayName>
+    <Identifier ref="request.header.x-api-key"/>
+    <MessageWeight ref="request.header.weight"/>
+    <UseEffectiveCount>true</UseEffectiveCount>
+    <Rate>30ps</Rate>
+</SpikeArrest>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" contintueOnError="false" enabled="true" name="FC-LogCollector">
+    <DisplayName>FC-LogCollector</DisplayName>
+    <FaultRules />
+    <Properties />
+    <Parameters>
+        <Parameter name="currentstep.flowstate">{currentstep.flowstate}</Parameter>
+    </Parameters>
+    <SharedFlowBundle>SF-1KYC-LoggingCollector</SharedFlowBundle>
+</FlowCallout>

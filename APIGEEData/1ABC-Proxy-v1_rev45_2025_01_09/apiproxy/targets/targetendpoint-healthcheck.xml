@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="targetendpoint-healthcheck">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+         <Request>
+            <Step>
+               <Name>FC-SetHeader</Name>
+            </Step>
+         </Request>
+         <Response/>
+    </PreFlow>
+    <PostFlow>
+        <Request/>
+        <Response>
+            <Step>
+               <Name>RF-BadContentType</Name>
+               <<Condition>response.header.content-length != "application/vnd.sprintboot.acutator.v3+json" AND response.header.Content-Type != "application/json"</Condition>
+            </Step>
+            <Step>
+               <Name>FC-Cors</Name>
+            </Step>
+        <Response>
+    </PostFlow>
+    <Flows/>
+    <HTTPTargetConnection>
+        <Properties/>
+        <SSLInfo/>
+        <LoadBalancer>
+            <Server name="1ABC-ProxyV1TargetServer"/>
+        </LoadBalancer>
+        <Path>/test/accountref/v1</Path>
+    </HTTPTargetConnection>
+</TargetEndpoint>
